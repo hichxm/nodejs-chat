@@ -43,6 +43,8 @@ io.on('connection', function(socket) {
     });
     //SEND USERS CONNECTED
     setInterval(function(){
-      io.emit('usersConnected', {usersConnected});
+      if(usersConnected >= 1){
+        io.emit('usersConnected', {usersConnected});
+      }
     }, 1000);
 });
